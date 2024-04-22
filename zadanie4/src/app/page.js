@@ -1,4 +1,8 @@
+"use client";
+
 import PlaceSearch from "./placeSearch.js";
+
+fetch("https://node92.webte.fei.stuba.sk:5004/");
 
 export default function Home() {
   return (
