@@ -2,6 +2,7 @@
 import { useForm } from "react-hook-form";
 import PlaceInfo from "./placeInfo";
 import { useState } from "react";
+import { createPlaceSearch } from "@/actions/placeSearches";
 
 export default function PlaceSearch() {
   const { register, handleSubmit } = useForm();
@@ -14,6 +15,11 @@ export default function PlaceSearch() {
       `https://geocode.maps.co/search?q=${query}&api_key=661fa7908e2f3349328565cky40b754`
     );
     const place = (await res.json())[0];
+
+    createPlaceSearch({
+      place: place.display_name.split(",")[0].trim(),
+      country: place.display_name.split(",").slice(-1)[0].trim(),
+    });
 
     setPlaceData(place);
     setDate(formData.date);

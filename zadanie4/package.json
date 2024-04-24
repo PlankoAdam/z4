@@ -13,9 +13,12 @@
     "react": "^18",
     "react-dom": "^18",
     "react-google-charts": "^4.0.1",
-    "react-hook-form": "^7.51.3"
+    "react-hook-form": "^7.51.3",
+    "redis": "^4.6.13"
   },
   "devDependencies": {
+    "@types/node": "20.12.7",
+    "@types/react": "18.2.79",
     "eslint": "^8",
     "eslint-config-next": "14.2.1",
     "postcss": "^8",

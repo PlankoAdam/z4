@@ -1,18 +1,35 @@
 version: "3.8"  # Specify the Docker Compose version
 
 services:
-  back-end:
+  python-server:
     build: ./server  # Build the image from the current directory (context)
     ports:
       - "5004:5004"  # Map container port 5000 to host port 5000
     volumes:
       - ./server:/app  # Mount the current directory as /app inside the container
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./database:/data
+    networks:
+      - dbnet
   web:
     build:
       context: ./zadanie4
       target: runner
-    restart: always
     ports:
       - "8084:3000"
     environment:
       NODE_ENV: production
+    depends_on:
+      - redis
+      - python-server
+    networks:
+      - dbnet
+
+networks:
+  dbnet:
+    driver: bridge

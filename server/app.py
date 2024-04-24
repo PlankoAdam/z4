@@ -3,7 +3,6 @@ from datetime import datetime, timedelta
 from flask import Flask, request, jsonify
 import os
 
-
 ASSETS_DIR = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__)
 
@@ -48,6 +47,42 @@ def track_visit():
   })
   response.headers.add('Access-Control-Allow-Origin', '*')
   return response
+
+# searches = []
+
+# def incrementCount(place, country):
+#   for search in searches:
+#     if search["place"] == place and search["country"] == country:
+#       search["count"] += 1
+#       return True
+#   return False
+
+# @app.route("/search_place", methods=["GET", "POST"])
+# def track_searches():
+#   if request.method == "POST":
+#     # place = request.form["place"]
+#     # country = request.form["country"]
+#     place = request.get_json().get("place")
+#     country = request.get_json().get("country")
+
+#     if incrementCount(place, country) == False:
+#       searches.append({
+#         "place": place,
+#         "country": country,
+#         "count": 1
+#       })
+
+#     response = jsonify(searches)
+#     response.headers.add('Access-Control-Allow-Origin', '*')
+#     return response
+#   elif request.method == "GET":
+#     response = jsonify(searches)
+#     response.headers.add('Access-Control-Allow-Origin', '*')
+#     return response
+  
+#   response = jsonify({})
+#   response.headers.add('Access-Control-Allow-Origin', '*')
+#   return response
 
 if __name__ == "__main__":
   context = ('webte_fei_stuba_sk.pem', 'webte.fei.stuba.sk.key')

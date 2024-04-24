@@ -9,9 +9,6 @@ export default function Navbar() {
           <Link href="/">Home</Link>
         </li>
         <li>
-          <Link href="/countries">Countries</Link>
-        </li>
-        <li>
           <Link href="/traffic">Traffic</Link>
         </li>
       </ul>
